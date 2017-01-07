@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -87,41 +88,97 @@ namespace Final_Station
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (Regex.IsMatch(txtpo.Text, @"^\d{6}"))
             {
                 Frmmessage frm = new Frmmessage();
                 frm.Show();
                 Application.DoEvents();
-                try
+                string strsql = $"EXEC usp_PODetail_Extend '{int.Parse(txtpo.Text)}',null";
+                DataSet ds = new DataSet();
+                ds = SqlHelper.ExcutePODataSet(strsql);
+                string Category;
+                if (ds.Tables[0].Rows.Count >0)
                 {
-                    SqlConnection cn = new SqlConnection(Server_Class.SqlData);
-                    cn.Open();
-                    SqlCommand cmd = new SqlCommand("usp_POsearch '" + textBox1.Text.Trim() + "'", cn);
-                    SqlDataAdapter dp = new SqlDataAdapter(cmd);
-                    Existpo = new DataTable();
-                    dp.Fill(Existpo);
-
-                    cn.Close();
-                    nopo();
-                    tovpo(textBox1.Text);
-
-                    dataGridView1.DataSource = Existpo;
-                    frm.Close();
-                    if (dataGridView1.RowCount > 0)
+                    for (int i = 0; i < ds.Tables[0].Rows.Count-1 ; i++)
                     {
-                        button2.Visible = true;
+                        Category = ds.Tables[0].Rows[i]["Category"].ToString();
+                        if (Category=="MC")
+                        {
+                            string pn = ds.Tables[0].Rows[i]["Component"].ToString();
+                            int qty = int.Parse(ds.Tables[0].Rows[i]["Extended Qty"].ToString());
+                            GridViewPO.Rows.Insert(0);
+                            GridViewPO.Rows[0].Cells["PartNumber"].Value = pn;
+                            GridViewPO.Rows[0].Cells["QTY"].Value = qty;
+                            string sql = $"exec usp_OLquery '{pn}'";
+                            DataSet ds1 = new DataSet();
+                            ds1 = SqlHelper.ExcuteDataSet(sql);
+                            if (ds1.Tables[0].Rows.Count >0)
+                            {
+                                int q = 0;
+                                for (int s = 0; s < ds1.Tables[0].Rows.Count; s++)
+                                {
+                                    int t = int.Parse(ds1.Tables[0].Rows[s]["Quantity"].ToString());
+                                    q = t + q;
+                                    if (q >= qty)
+                                    {
+                                        
+                                        if (GridViewPO.Rows[0].Cells["Location"].Value == null)
+                                        {
+                                            GridViewPO.Rows[0].Cells["Location"].Value =ds1.Tables[0].Rows[s]["Location"].ToString();
+                                        }
+                                        else
+                                        {
+                                            GridViewPO.Rows[0].Cells["Location"].Value = $" {GridViewPO.Rows[0].Cells["Location"].Value}&{ds1.Tables[0].Rows[s]["Location"].ToString()}";
+                                        }
+                                       
+                                        break;
+                                    }
+
+                                    if (q<qty)
+                                    {
+                                        if (GridViewPO.Rows[0].Cells["Location"].Value == null)
+                                        {
+                                            GridViewPO.Rows[0].Cells["Location"].Value =ds1.Tables[0].Rows[s]["Location"].ToString();
+                                        }
+                                        else
+                                        {
+                                            GridViewPO.Rows[0].Cells["Location"].Value = $"{ GridViewPO.Rows[0].Cells["Location"].Value}&{ds1.Tables[0].Rows[s]["Location"].ToString()}";
+                                        }                                  
+                                       
+                                    }
+                                           
+                                }
+                                 
+                            } 
+                        }
                     }
-                    else
+
+                    //==========================================
+                    string posql = $"exec usp_BoxItemout '{int.Parse(txtpo.Text)}'";
+                    DataSet ds2 = new DataSet();
+                    ds2 = SqlHelper.ExcuteDataSet(posql);
+                    if (ds2.Tables[0].Rows.Count >0)
                     {
-                        button2.Visible = false;
+                        for (int i = 0; i <ds2.Tables[0].Rows.Count; i++)
+                        {
+                            string boxpn = ds2.Tables[0].Rows[i]["PartNumber"].ToString();
+                            for (int d = 0; d < GridViewPO.Rows.Count; d++)
+                            {
+                                if (GridViewPO.Rows[d].Cells["PartNumber"].Value.ToString() ==boxpn )
+                                {
+                                    GridViewPO.Rows[d].Cells["Location"].Value = ds2.Tables[0].Rows[i]["Location"].ToString();
+                                   // break;
+                                }
+
+                            }
+
+                        }
+
                     }
+
+                    GridViewPO.DataSource = Existpo;
                 }
-                catch (Exception err)
-                {
-                    frm.Close();
-                    MessageBox.Show(err.Message);
-                    textBox1.Clear(); textBox1.Focus();
-                }
+               
             }
             else
             {
@@ -147,11 +204,11 @@ namespace Final_Station
             if (e.KeyCode == Keys.Enter)
             {
                 temp = 0;
-                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    for (int i = 0; i < GridViewPO.RowCount; i++)
                     {
-                        if (textBox2.Text == dataGridView1.Rows[i].Cells["Location"].Value.ToString() && dataGridView1.Rows[i].Cells["zt"].Value == null)
+                        if (textBox2.Text == GridViewPO.Rows[i].Cells["Location"].Value.ToString() && GridViewPO.Rows[i].Cells["zt"].Value == null)
                         {
-                            dataGridView1.Rows[i].Cells["zt"].Value = "√";
+                            GridViewPO.Rows[i].Cells["zt"].Value = "√";
                         TakePart(textBox2.Text.Trim());
                             textBox2.Clear();
                             num++;
@@ -166,12 +223,12 @@ namespace Final_Station
                 }
 
 
-                if (num == dataGridView1.RowCount)
+                if (num == GridViewPO.RowCount)
                 {
                     MessageBox.Show("备料完成", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    dataGridView1.DataSource=null ;
+                    GridViewPO.DataSource=null ;
                     tabControl1.Visible = false;
-                    textBox1.Clear();textBox1.Focus();
+                    txtpo.Clear();txtpo.Focus();
 
 
                 }
