@@ -12,9 +12,12 @@ namespace Final_Station
 {
     public partial class InputBox : Form
     {
-        public InputBox()
+        string messtr = null;
+        public InputBox(string str)
         {
             InitializeComponent();
+            messtr = str;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +33,20 @@ namespace Final_Station
                 Server_Class.olval = textBox1.Text.Trim();
                 this.Close();
             }
+        }
+
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+            label1.Text = messtr;
+            
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }       
         }
     }
 }

@@ -28,8 +28,15 @@ namespace Final_Station
             {
                 PB.Value = i;
                 label2.Text = i + " 盏灯";
-
-
+                if (LabLEDview.Text == "l")
+                {
+                    LabLEDview.Text = "";
+                }
+                else
+                {
+                    LabLEDview.Text = "l";
+                }
+               
                 //===========================================================通过DS Table打开LED
             }
             else
@@ -46,19 +53,12 @@ namespace Final_Station
 
             try
             {
-
-                SqlConnection cn = new SqlConnection(Server_Class.SqlData);
-                cn.Open();
-                SqlCommand cmd = new SqlCommand("usp_LEDONOFF", cn);
-                SqlDataAdapter dp = new SqlDataAdapter(cmd);
-                ds = new DataSet();
-                dp.Fill(ds);
-                cn.Close();
+                string str = "exec usp_LEDONOFF";
+                ds = SqlHelper.ExcuteDataSet(str);              
                 PB.Maximum = ds.Tables[0].Rows.Count - 1;
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message);
             }
 
@@ -77,7 +77,7 @@ namespace Final_Station
             {
                 timer1.Enabled = false;
                 PB.Visible = false; button4.Visible = false;
-                label1.Visible = false;label2.Visible = false;
+                label1.Visible = false;label2.Visible = false;LabLEDview.Visible = false;
 
 
             }
@@ -110,7 +110,7 @@ namespace Final_Station
             button4.Visible = true;
             LEDport();
             timer1.Enabled = true;
-            label1.Visible = true; label2.Visible = true;
+            label1.Visible = true; label2.Visible = true;LabLEDview.Visible = true;
 
         }
 
@@ -126,6 +126,25 @@ namespace Final_Station
             }
             button4.Text = button4.Text == "暂停" ? "启动" : "暂停";
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Frmdown frm = new Frmdown();
+            frm.ShowDialog();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmTurnlocation  frm = new FrmTurnlocation();
+            frm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Frmwip frm = new Frmwip();
+            frm.ShowDialog();
         }
     }
 }

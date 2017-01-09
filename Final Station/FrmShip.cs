@@ -91,8 +91,9 @@ namespace Final_Station
             if (Regex.IsMatch(txtpo.Text, @"^\d{6}"))
             {
                 Frmmessage frm = new Frmmessage();
-                frm.Show();
+                frm.Show();            
                 Application.DoEvents();
+                GridViewPO.Rows.Clear();
                 string strsql = $"EXEC usp_PODetail_Extend '{int.Parse(txtpo.Text)}',null";
                 DataSet ds = new DataSet();
                 ds = SqlHelper.ExcutePODataSet(strsql);
@@ -128,7 +129,9 @@ namespace Final_Station
                                         }
                                         else
                                         {
-                                            GridViewPO.Rows[0].Cells["Location"].Value = $" {GridViewPO.Rows[0].Cells["Location"].Value}&{ds1.Tables[0].Rows[s]["Location"].ToString()}";
+                                            GridViewPO.Rows.Insert(1);
+                                            GridViewPO.Rows[1].Cells["Location"].Value =ds1.Tables[0].Rows[s]["Location"].ToString();
+                                           // DataGridView.Rows[i].Cells.AddRange();
                                         }
                                        
                                         break;
@@ -142,10 +145,12 @@ namespace Final_Station
                                         }
                                         else
                                         {
-                                            GridViewPO.Rows[0].Cells["Location"].Value = $"{ GridViewPO.Rows[0].Cells["Location"].Value}&{ds1.Tables[0].Rows[s]["Location"].ToString()}";
+                                            GridViewPO.Rows.Insert(1);
+                                            GridViewPO.Rows[1].Cells["Location"].Value =ds1.Tables[0].Rows[s]["Location"].ToString();
                                         }                                  
                                        
                                     }
+                                  
                                            
                                 }
                                  
@@ -177,15 +182,21 @@ namespace Final_Station
                     }
 
                     GridViewPO.DataSource = Existpo;
+                    button2.Visible = true;
                 }
+                else
+                {
+                    MessageBox.Show("请输入正确PO，PO不存在", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                frm.Dispose();
+                frm.Close();
                
             }
             else
             {
                 MessageBox.Show("请输入PO#，不可以为空", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            tabControl1.Visible = false;
-            num = 0;
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -206,14 +217,17 @@ namespace Final_Station
                 temp = 0;
                     for (int i = 0; i < GridViewPO.RowCount; i++)
                     {
+                    if (GridViewPO.Rows[i].Cells["Location"].Value!=null)
+                    {
                         if (textBox2.Text == GridViewPO.Rows[i].Cells["Location"].Value.ToString() && GridViewPO.Rows[i].Cells["zt"].Value == null)
                         {
                             GridViewPO.Rows[i].Cells["zt"].Value = "√";
-                        TakePart(textBox2.Text.Trim());
+                            TakePart(textBox2.Text.Trim());
                             textBox2.Clear();
                             num++;
                             temp = 1;
                         }
+                    }
                     }
 
                 if (temp !=1)
@@ -253,6 +267,13 @@ namespace Final_Station
             }
 
         }
-       
+
+        private void txtpo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender,e);
+            }        
+        }
     }
 }

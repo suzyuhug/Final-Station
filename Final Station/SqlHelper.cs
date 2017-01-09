@@ -98,7 +98,7 @@ namespace Final_Station
                 return null;
             }
         }
-        public static int ExecuteNonQuery(string Sql)
+        public static bool ExecuteNonQuery(string Sql)
         {
             try
             {
@@ -108,11 +108,11 @@ namespace Final_Station
                 cmd.ExecuteNonQuery();
                 cn.Close();
                 cn.Dispose();
-                return 1;
+                return true;
             }
             catch (Exception)
             {
-                return 0;
+                return false;
             }
             
 

@@ -72,8 +72,8 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show($"无法给 {txtpn.Text} 分配库位，请点击确定手动选择库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    InputBox input = new InputBox();
+                    //MessageBox.Show($"无法给 {txtpn.Text} 分配库位，请点击确定手动选择库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    InputBox input = new InputBox($"请输入{txtpn.Text}放置的库位");
                     input.ShowDialog();
                     Olid = Server_Class.olval;
                     if (Olid != null)

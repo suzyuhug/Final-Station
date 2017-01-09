@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,16 +20,12 @@ namespace Final_Station
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmPtaway Ptaway = new FrmPtaway() ;
-            Ptaway.Show();
-
-        }
+       
+       
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmShip ship = new FrmShip();
+            FrmShip ship =new FrmShip();
             ship.Show();
 
         }
@@ -81,10 +79,10 @@ namespace Final_Station
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void ButPtaway_Click(object sender, EventArgs e)
         {
-            Server_Class cls = new Server_Class();
-            cls.onoffled("A1-1","0");
+            FrmPtaway frm = new FrmPtaway();
+            frm.Show();
         }
     }
 }

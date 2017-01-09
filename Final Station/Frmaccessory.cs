@@ -27,7 +27,7 @@ namespace Final_Station
                 return;
             }
             string strsql = $"exec usp_InsertBoxItem '{int.Parse(txtpo.Text )}','{txtpn.Text.Trim()}','{numqty.Value}'";
-            if (SqlHelper.ExecuteNonQuery(strsql)==1)
+            if (SqlHelper.ExecuteNonQuery(strsql))
             {
                 listlog.Items.Insert(0,$"PO:{txtpo.Text}  PN:{txtpn.Text}  QTY:{numqty.Value}");
                 txtpn.Clear();numqty.Value = 1;

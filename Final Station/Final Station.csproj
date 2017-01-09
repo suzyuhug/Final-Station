@@ -65,6 +65,12 @@
     <Compile Include="Frmaccessory.Designer.cs">
       <DependentUpon>Frmaccessory.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDown.Designer.cs">
+      <DependentUpon>FrmDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frmmessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,18 @@
     <Compile Include="FrmShip.Designer.cs">
       <DependentUpon>FrmShip.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTurnlocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTurnlocation.Designer.cs">
+      <DependentUpon>FrmTurnlocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmwip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmwip.Designer.cs">
+      <DependentUpon>Frmwip.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,9 @@
     <EmbeddedResource Include="Frmaccessory.resx">
       <DependentUpon>Frmaccessory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDown.resx">
+      <DependentUpon>FrmDown.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frmmessage.resx">
       <DependentUpon>Frmmessage.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShip.resx">
       <DependentUpon>FrmShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTurnlocation.resx">
+      <DependentUpon>FrmTurnlocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmwip.resx">
+      <DependentUpon>Frmwip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>

@@ -38,7 +38,6 @@
             this.ButShip = new System.Windows.Forms.Button();
             this.ButSetting = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,8 +51,8 @@
             this.ButPtaway.TabIndex = 0;
             this.ButPtaway.Text = "上 架";
             this.ButPtaway.UseVisualStyleBackColor = true;
-            this.ButPtaway.Click += new System.EventHandler(this.button1_Click);
-            // 
+            this.ButPtaway.Click += new System.EventHandler(this.ButPtaway_Click);
+            
             // ButShip
             // 
             this.ButShip.Location = new System.Drawing.Point(70, 182);
@@ -109,22 +108,11 @@
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             this.chart1.DoubleClick += new System.EventHandler(this.chart1_DoubleClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(70, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 37);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 731);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.ButSetting);
             this.Controls.Add(this.ButShip);
@@ -144,7 +132,6 @@
         private System.Windows.Forms.Button ButShip;
         private System.Windows.Forms.Button ButSetting;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

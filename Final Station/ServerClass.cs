@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,10 +40,26 @@ namespace Final_Station
 
                 System.Windows.Forms.MessageBox.Show(err.Message);
             }
+        }
+        public void LEDOnOff(string ip,int port,string message)
+        {
 
-
-
-
+            TcpClient tcpClient = new TcpClient();
+            tcpClient.Connect(IPAddress.Parse(ip), port);
+            NetworkStream ntwStream = tcpClient.GetStream();
+            if (ntwStream.CanWrite)
+            {
+                Byte[] bytSend = Encoding.UTF8.GetBytes(message);
+                ntwStream.Write(bytSend, 0, bytSend.Length);
+            }
+            else
+            {               
+                ntwStream.Close();
+                tcpClient.Close();
+                return;
+            }
+            ntwStream.Close();
+            tcpClient.Close();
         }
     }   
 }
