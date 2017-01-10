@@ -34,6 +34,7 @@
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 20D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D);
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ButPtaway = new System.Windows.Forms.Button();
             this.ButShip = new System.Windows.Forms.Button();
             this.ButSetting = new System.Windows.Forms.Button();
@@ -49,17 +50,17 @@
             this.ButPtaway.Name = "ButPtaway";
             this.ButPtaway.Size = new System.Drawing.Size(93, 48);
             this.ButPtaway.TabIndex = 0;
-            this.ButPtaway.Text = "上 架";
+            this.ButPtaway.Text = "IN";
             this.ButPtaway.UseVisualStyleBackColor = true;
             this.ButPtaway.Click += new System.EventHandler(this.ButPtaway_Click);
-            
+            // 
             // ButShip
             // 
             this.ButShip.Location = new System.Drawing.Point(70, 182);
             this.ButShip.Name = "ButShip";
             this.ButShip.Size = new System.Drawing.Size(93, 48);
             this.ButShip.TabIndex = 1;
-            this.ButShip.Text = "出 货";
+            this.ButShip.Text = "OUT";
             this.ButShip.UseVisualStyleBackColor = true;
             this.ButShip.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -71,7 +72,7 @@
             this.ButSetting.Name = "ButSetting";
             this.ButSetting.Size = new System.Drawing.Size(93, 48);
             this.ButSetting.TabIndex = 3;
-            this.ButSetting.Text = "设 置";
+            this.ButSetting.Text = "SET";
             this.ButSetting.UseVisualStyleBackColor = true;
             this.ButSetting.Click += new System.EventHandler(this.ButSetting_Click);
             // 
@@ -117,6 +118,7 @@
             this.Controls.Add(this.ButSetting);
             this.Controls.Add(this.ButShip);
             this.Controls.Add(this.ButPtaway);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Final Station";

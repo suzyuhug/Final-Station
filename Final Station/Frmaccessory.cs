@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -27,8 +28,11 @@ namespace Final_Station
                 return;
             }
             string strsql = $"exec usp_InsertBoxItem '{int.Parse(txtpo.Text )}','{txtpn.Text.Trim()}','{numqty.Value}'";
-            if (SqlHelper.ExecuteNonQuery(strsql))
+            DataSet ds = new DataSet();
+            ds = SqlHelper.ExcuteDataSet(strsql);
+            if (ds!=null)
             {
+                labloc.Text = ds.Tables[0].Rows[0]["LOC"].ToString();
                 listlog.Items.Insert(0,$"PO:{txtpo.Text}  PN:{txtpn.Text}  QTY:{numqty.Value}");
                 txtpn.Clear();numqty.Value = 1;
                 txtpn.Focus();
@@ -61,6 +65,8 @@ namespace Final_Station
                     txtpo.Focus();
                     panel1.Visible = false;
                     butstart.Text = "Start";
+                    poexit();
+                    labloc.Text = "";
                 }
             }
             else 
@@ -99,5 +105,13 @@ namespace Final_Station
                 butstart_Click(sender,e);
             }
         }
+        private void poexit()
+            {
+            if (labloc.Text!="")
+            {
+                string strsql = $"exec usp_updateboxstatus '{labloc.Text}'";
+                SqlHelper.ExecuteNonQuery(strsql);
+            }          
+            }
     }
 }

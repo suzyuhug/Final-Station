@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPtaway));
             this.label1 = new System.Windows.Forms.Label();
             this.txtpn = new System.Windows.Forms.TextBox();
             this.butenter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.NumQty = new System.Windows.Forms.NumericUpDown();
             this.GridViewItem = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.附件上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PartNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InsertDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.附件上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NumQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewItem)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -110,17 +111,17 @@
             // GridViewItem
             // 
             this.GridViewItem.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.GridViewItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.GridViewItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewItem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.GridViewItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PartNumber,
@@ -128,14 +129,14 @@
             this.Quantity,
             this.Description,
             this.InsertDate});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewItem.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridViewItem.DefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewItem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.GridViewItem.Location = new System.Drawing.Point(49, 199);
             this.GridViewItem.Name = "GridViewItem";
@@ -143,23 +144,6 @@
             this.GridViewItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridViewItem.Size = new System.Drawing.Size(870, 333);
             this.GridViewItem.TabIndex = 7;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.附件上架ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 附件上架ToolStripMenuItem
-            // 
-            this.附件上架ToolStripMenuItem.Name = "附件上架ToolStripMenuItem";
-            this.附件上架ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.附件上架ToolStripMenuItem.Text = "附件上架";
-            this.附件上架ToolStripMenuItem.Click += new System.EventHandler(this.附件上架ToolStripMenuItem_Click);
             // 
             // PartNumber
             // 
@@ -191,6 +175,23 @@
             this.InsertDate.HeaderText = "InsertDate";
             this.InsertDate.Name = "InsertDate";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.附件上架ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 附件上架ToolStripMenuItem
+            // 
+            this.附件上架ToolStripMenuItem.Name = "附件上架ToolStripMenuItem";
+            this.附件上架ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.附件上架ToolStripMenuItem.Text = "附件上架";
+            this.附件上架ToolStripMenuItem.Click += new System.EventHandler(this.附件上架ToolStripMenuItem_Click);
+            // 
             // FrmPtaway
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +204,7 @@
             this.Controls.Add(this.txtpn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPtaway";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

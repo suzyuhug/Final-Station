@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTurnlocation));
             this.txtold = new System.Windows.Forms.TextBox();
             this.txtnew = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -97,6 +98,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtnew);
             this.Controls.Add(this.txtold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTurnlocation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "转库位";

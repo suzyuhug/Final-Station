@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frmaccessory));
             this.txtpo = new System.Windows.Forms.TextBox();
             this.POLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,6 +40,7 @@
             this.butadd = new System.Windows.Forms.Button();
             this.txtpn = new System.Windows.Forms.TextBox();
             this.PNlabel = new System.Windows.Forms.Label();
+            this.labloc = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numqty)).BeginInit();
@@ -74,7 +76,7 @@
             // listlog
             // 
             this.listlog.FormattingEnabled = true;
-            this.listlog.Location = new System.Drawing.Point(18, 19);
+            this.listlog.Location = new System.Drawing.Point(13, 27);
             this.listlog.Name = "listlog";
             this.listlog.Size = new System.Drawing.Size(381, 121);
             this.listlog.TabIndex = 0;
@@ -156,16 +158,26 @@
             this.PNlabel.TabIndex = 8;
             this.PNlabel.Text = "PN:";
             // 
+            // labloc
+            // 
+            this.labloc.AutoSize = true;
+            this.labloc.Location = new System.Drawing.Point(414, 6);
+            this.labloc.Name = "labloc";
+            this.labloc.Size = new System.Drawing.Size(0, 13);
+            this.labloc.TabIndex = 10;
+            // 
             // Frmaccessory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 324);
+            this.Controls.Add(this.labloc);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.butstart);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.POLabel);
             this.Controls.Add(this.txtpo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frmaccessory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Frmaccessory";
@@ -191,5 +203,6 @@
         private System.Windows.Forms.Button butadd;
         private System.Windows.Forms.TextBox txtpn;
         private System.Windows.Forms.Label PNlabel;
+        private System.Windows.Forms.Label labloc;
     }
 }
