@@ -21,8 +21,11 @@ namespace Final_Station
 
         int i = 0;
         DataSet ds;
+        string onoff = null;
         private void LEDONOFF(object sender, EventArgs e)
         {
+            string gip, gmsg;
+            int gport;
             i++;
             if (i <= PB.Maximum)
             {
@@ -36,8 +39,12 @@ namespace Final_Station
                 {
                     LabLEDview.Text = "l";
                 }
-               
+
                 //===========================================================通过DS Table打开LED
+                gip = ds.Tables[0].Rows[i-1]["LED_IP"].ToString();
+                gport = int.Parse(ds.Tables[0].Rows[i-1]["LED_Port"].ToString());
+                gmsg = $"{ds.Tables[0].Rows[i-1]["LED_Message"].ToString()}{onoff}";
+                Server_Class.LEDOnOff(gip,gport,gmsg);
             }
             else
             {
@@ -55,7 +62,7 @@ namespace Final_Station
             {
                 string str = "exec usp_LEDONOFF";
                 ds = SqlHelper.ExcuteDataSet(str);              
-                PB.Maximum = ds.Tables[0].Rows.Count - 1;
+                PB.Maximum = ds.Tables[0].Rows.Count;
             }
             catch (Exception err)
             {
@@ -71,7 +78,9 @@ namespace Final_Station
                 PB.Top = button1.Top + button1.Height;
                 button4.Top = button1.Top;
                 label1.Text = "已打开";
+                onoff = "_0";
                 butview();
+                
             }
             else if (button1.Text == "停止")
             {
@@ -92,6 +101,7 @@ namespace Final_Station
                 PB.Top = button2.Top + button2.Height;
                 button4.Top = button2.Top;
                 label1.Text = "已关闭";
+                onoff = "_1";
                 butview();
             }
             else if (button2.Text == "停止")
@@ -145,6 +155,19 @@ namespace Final_Station
         {
             Frmwip frm = new Frmwip();
             frm.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Frmonoffled frm = new Frmonoffled();
+            frm.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Frmtest frm = new Frmtest();
+            frm.ShowDialog();
+
         }
     }
 }

@@ -27,6 +27,10 @@ namespace Final_Station
                 numqty.Value = 1; numqty.Select(0, numqty.Value.ToString().Length);
                 return;
             }
+            if (txtpn.Text .Substring(0,1)=="P")
+            {
+                txtpn.Text = txtpn.Text.Remove(0,1);
+            }
             string strsql = $"exec usp_InsertBoxItem '{int.Parse(txtpo.Text )}','{txtpn.Text.Trim()}','{numqty.Value}'";
             DataSet ds = new DataSet();
             ds = SqlHelper.ExcuteDataSet(strsql);

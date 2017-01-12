@@ -198,12 +198,35 @@ namespace Final_Station
             }
            
         }
-
+        int num1 = 0;
         private void button2_Click(object sender, EventArgs e)
         {
+            num1 = 0;
+            for (int i = 0; i < GridViewPO.RowCount ; i++)
+            {
+                if (GridViewPO.Rows[i].Cells["Location"].Value != null)
+                {
+                    num1++;
+                    //==========打开LED
+                    openLED(GridViewPO.Rows[i].Cells["Location"].Value.ToString());
+
+
+                }
+            }
+            
             button2.Visible = false;
             tabControl1.Visible = true;
             textBox2.Focus();
+        }
+        private void openLED(string ol)
+        {
+            
+            Server_Class.onoffled(ol,0);
+        }
+        private void closeLED(string ol)
+        {
+            Server_Class.onoffled(ol,1);
+
         }
 
 
@@ -215,38 +238,39 @@ namespace Final_Station
             if (e.KeyCode == Keys.Enter)
             {
                 temp = 0;
-                    for (int i = 0; i < GridViewPO.RowCount; i++)
-                    {
-                    if (GridViewPO.Rows[i].Cells["Location"].Value!=null)
+                for (int i = 0; i < GridViewPO.RowCount; i++)
+                {
+                    if (GridViewPO.Rows[i].Cells["Location"].Value != null)
                     {
                         if (textBox2.Text == GridViewPO.Rows[i].Cells["Location"].Value.ToString() && GridViewPO.Rows[i].Cells["zt"].Value == null)
                         {
                             GridViewPO.Rows[i].Cells["zt"].Value = "√";
                             TakePart(textBox2.Text.Trim());
+                            closeLED(textBox2.Text.Trim());
                             textBox2.Clear();
                             num++;
                             temp = 1;
                         }
                     }
-                    }
+                }
 
-                if (temp !=1)
+                if (temp != 1)
                 {
-                    MessageBox.Show("请扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error );
-                    textBox2.Clear();textBox2.Focus();
+                    MessageBox.Show("请扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox2.Clear(); textBox2.Focus();
                 }
 
 
-                if (num == GridViewPO.RowCount)
+                if (num ==num1)
                 {
                     MessageBox.Show("备料完成", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    GridViewPO.DataSource=null ;
+                    GridViewPO.DataSource = null;
                     tabControl1.Visible = false;
-                    txtpo.Clear();txtpo.Focus();
+                    txtpo.Clear(); txtpo.Focus();
 
 
                 }
-               
+
             }
         }
 
@@ -274,6 +298,12 @@ namespace Final_Station
             {
                 button1_Click(sender,e);
             }        
+        }
+
+        private void FrmShip_Load(object sender, EventArgs e)
+        {
+      
+           
         }
     }
 }

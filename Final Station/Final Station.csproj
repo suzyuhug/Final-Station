@@ -86,6 +86,12 @@
     <Compile Include="Frmolview.Designer.cs">
       <DependentUpon>Frmolview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frmonoffled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmonoffled.Designer.cs">
+      <DependentUpon>Frmonoffled.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPtaway.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="FrmShip.Designer.cs">
       <DependentUpon>FrmShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmtest.Designer.cs">
+      <DependentUpon>Frmtest.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTurnlocation.cs">
       <SubType>Form</SubType>
@@ -141,6 +153,9 @@
     <EmbeddedResource Include="Frmolview.resx">
       <DependentUpon>Frmolview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frmonoffled.resx">
+      <DependentUpon>Frmonoffled.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPtaway.resx">
       <DependentUpon>FrmPtaway.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShip.resx">
       <DependentUpon>FrmShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmtest.resx">
+      <DependentUpon>Frmtest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTurnlocation.resx">
       <DependentUpon>FrmTurnlocation.cs</DependentUpon>

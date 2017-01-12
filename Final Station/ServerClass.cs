@@ -15,7 +15,7 @@ namespace Final_Station
     {
         public static string SqlData = "server=10.194.48.150\\MySQL;database=Final Station;uid=sa;pwd=Aa123456";
         public static string olval;
-        public void onoffled(string ol,int onoffid)
+        public static void onoffled(string ol,int onoffid)
         {
             string strsql = $"exec usp_ONOFFLED '{ol}','{onoffid}'";
             DataSet ds = new DataSet();
@@ -28,10 +28,10 @@ namespace Final_Station
                 {
                     gip = ds.Tables[0].Rows[0]["LED_IP"].ToString();
                     gport = int.Parse(ds.Tables[0].Rows[0]["LED_Port"].ToString());
-                    gmsg = ds.Tables[0].Rows[0]["LED_Message"].ToString();
+                    gmsg = $"{ds.Tables[0].Rows[0]["LED_Message"].ToString()}_{onoffid}";
                     pip = ds.Tables[0].Rows[0]["LED_IP1"].ToString();
                     pport = int.Parse(ds.Tables[0].Rows[0]["LED_Port1"].ToString());
-                    pmsg = ds.Tables[0].Rows[0]["LED_Message1"].ToString();
+                    pmsg = $"{ds.Tables[0].Rows[0]["LED_Message1"].ToString()}_{onoffid}";
                     onoff =int.Parse(ds.Tables[0].Rows[0]["ONOFF"].ToString());
                     if (onoff == 0)
                     {
@@ -47,25 +47,34 @@ namespace Final_Station
 
            
         }
-        public void LEDOnOff(string ip,int port,string message)
+        public static void LEDOnOff(string ip,int port,string message)
         {
-            
-            TcpClient tcpClient = new TcpClient();
-            tcpClient.Connect(IPAddress.Parse(ip), port);
-            NetworkStream ntwStream = tcpClient.GetStream();
-            if (ntwStream.CanWrite)
+            bool bl =true  ;
+            if (bl)
             {
-                Byte[] bytSend = Encoding.UTF8.GetBytes(message);
-                ntwStream.Write(bytSend, 0, bytSend.Length);
-            }
-            else
-            {               
+                TcpClient tcpClient = new TcpClient();
+                tcpClient.Connect(IPAddress.Parse(ip), port);
+                NetworkStream ntwStream = tcpClient.GetStream();
+                if (ntwStream.CanWrite)
+                {
+                    Byte[] bytSend = Encoding.UTF8.GetBytes(message);
+                    ntwStream.Write(bytSend, 0, bytSend.Length);
+                }
+                else
+                {
+                    ntwStream.Close();
+                    tcpClient.Close();
+                    return;
+                }
                 ntwStream.Close();
                 tcpClient.Close();
-                return;
+
             }
-            ntwStream.Close();
-            tcpClient.Close();
+            else
+            {
+
+            }
+           
         }
     }   
 }

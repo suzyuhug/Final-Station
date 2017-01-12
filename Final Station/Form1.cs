@@ -84,5 +84,14 @@ namespace Final_Station
             FrmPtaway frm = new FrmPtaway();
             frm.Show();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel2.Text = dt.ToString();
+
+
+
+        }
     }
 }

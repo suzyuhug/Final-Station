@@ -213,7 +213,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmShip";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "出货";
+            this.Text = "Out Main";
+            this.Load += new System.EventHandler(this.FrmShip_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPO)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

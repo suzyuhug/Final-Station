@@ -45,6 +45,9 @@
             this.InsertDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.附件上架ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtloc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewItem)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -54,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 49);
+            this.label1.Location = new System.Drawing.Point(59, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 24);
             this.label1.TabIndex = 0;
@@ -62,6 +65,7 @@
             // 
             // txtpn
             // 
+            this.txtpn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpn.Location = new System.Drawing.Point(128, 46);
             this.txtpn.Name = "txtpn";
@@ -71,11 +75,11 @@
             // 
             // butenter
             // 
-            this.butenter.Location = new System.Drawing.Point(844, 37);
+            this.butenter.Location = new System.Drawing.Point(367, 84);
             this.butenter.Name = "butenter";
-            this.butenter.Size = new System.Drawing.Size(98, 38);
+            this.butenter.Size = new System.Drawing.Size(80, 38);
             this.butenter.TabIndex = 4;
-            this.butenter.Text = "确 定";
+            this.butenter.Text = "Enter";
             this.butenter.UseVisualStyleBackColor = true;
             this.butenter.Click += new System.EventHandler(this.butenter_Click);
             // 
@@ -83,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(340, 49);
+            this.label3.Location = new System.Drawing.Point(59, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 24);
             this.label3.TabIndex = 5;
@@ -92,7 +96,7 @@
             // NumQty
             // 
             this.NumQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumQty.Location = new System.Drawing.Point(423, 49);
+            this.NumQty.Location = new System.Drawing.Point(128, 93);
             this.NumQty.Minimum = new decimal(new int[] {
             1,
             0,
@@ -138,11 +142,11 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridViewItem.DefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewItem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.GridViewItem.Location = new System.Drawing.Point(49, 199);
+            this.GridViewItem.Location = new System.Drawing.Point(27, 219);
             this.GridViewItem.Name = "GridViewItem";
             this.GridViewItem.RowHeadersVisible = false;
             this.GridViewItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridViewItem.Size = new System.Drawing.Size(870, 333);
+            this.GridViewItem.Size = new System.Drawing.Size(917, 366);
             this.GridViewItem.TabIndex = 7;
             // 
             // PartNumber
@@ -177,10 +181,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.附件上架ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(971, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
@@ -192,11 +199,44 @@
             this.附件上架ToolStripMenuItem.Text = "附件上架";
             this.附件上架ToolStripMenuItem.Click += new System.EventHandler(this.附件上架ToolStripMenuItem_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 610);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(971, 40);
+            this.toolStrip1.TabIndex = 9;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(59, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "LOC:";
+            // 
+            // txtloc
+            // 
+            this.txtloc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtloc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtloc.Location = new System.Drawing.Point(128, 145);
+            this.txtloc.Name = "txtloc";
+            this.txtloc.Size = new System.Drawing.Size(180, 29);
+            this.txtloc.TabIndex = 11;
+            this.txtloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtloc_KeyDown);
+            // 
             // FrmPtaway
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 650);
+            this.Controls.Add(this.txtloc);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.GridViewItem);
             this.Controls.Add(this.NumQty);
             this.Controls.Add(this.label3);
@@ -208,7 +248,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPtaway";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "上架";
+            this.Text = "IN Main";
             this.Load += new System.EventHandler(this.FrmPtaway_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewItem)).EndInit();
@@ -234,5 +274,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn InsertDate;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtloc;
     }
 }
