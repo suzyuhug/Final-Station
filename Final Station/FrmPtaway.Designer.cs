@@ -75,7 +75,7 @@
             // 
             // butenter
             // 
-            this.butenter.Location = new System.Drawing.Point(367, 84);
+            this.butenter.Location = new System.Drawing.Point(385, 84);
             this.butenter.Name = "butenter";
             this.butenter.Size = new System.Drawing.Size(80, 38);
             this.butenter.TabIndex = 4;
