@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,7 +82,7 @@ namespace Final_Station
 
         private void ButPtaway_Click(object sender, EventArgs e)
         {
-            FrmPtaway frm = new FrmPtaway();
+            Frmin frm = new Frmin();
             frm.Show();
         }
 
@@ -93,5 +94,7 @@ namespace Final_Station
 
 
         }
+      
+       
     }
 }

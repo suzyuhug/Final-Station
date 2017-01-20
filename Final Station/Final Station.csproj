@@ -68,11 +68,23 @@
     <Compile Include="Frmaccessory.Designer.cs">
       <DependentUpon>Frmaccessory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frmdefaultloc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmdefaultloc.Designer.cs">
+      <DependentUpon>Frmdefaultloc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDown.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDown.Designer.cs">
       <DependentUpon>FrmDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmin.Designer.cs">
+      <DependentUpon>Frmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Frmmessage.cs">
       <SubType>Form</SubType>
@@ -144,8 +156,14 @@
     <EmbeddedResource Include="Frmaccessory.resx">
       <DependentUpon>Frmaccessory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frmdefaultloc.resx">
+      <DependentUpon>Frmdefaultloc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDown.resx">
       <DependentUpon>FrmDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmin.resx">
+      <DependentUpon>Frmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frmmessage.resx">
       <DependentUpon>Frmmessage.cs</DependentUpon>

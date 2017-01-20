@@ -169,5 +169,12 @@ namespace Final_Station
             frm.ShowDialog();
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Frmdefaultloc frm = new Frmdefaultloc();
+            frm.ShowDialog();
+
+        }
     }
 }

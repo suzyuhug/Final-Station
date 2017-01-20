@@ -217,5 +217,10 @@ namespace Final_Station
             }
 
         }
+
+        private void txtloc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,6 +16,7 @@ namespace Final_Station
     {
         public static string SqlData = "server=10.194.48.150\\MySQL;database=Final Station;uid=sa;pwd=Aa123456";
         public static string olval;
+        public static ArrayList list1 = new ArrayList();
         public static void onoffled(string ol,int onoffid)
         {
             string strsql = $"exec usp_ONOFFLED '{ol}','{onoffid}'";
@@ -26,6 +28,15 @@ namespace Final_Station
             {
                 if (ds.Tables[0].Rows.Count >0)
                 {
+                    if (onoffid==0)
+                    {
+                        Server_Class.list1.Add(ol);
+                    }
+                    else if(onoffid ==1)
+                    {
+                        Server_Class.list1.Remove(ol);
+                    }
+
                     gip = ds.Tables[0].Rows[0]["LED_IP"].ToString();
                     gport = int.Parse(ds.Tables[0].Rows[0]["LED_Port"].ToString());
                     gmsg = $"{ds.Tables[0].Rows[0]["LED_Message"].ToString()}_{onoffid}";
@@ -47,9 +58,24 @@ namespace Final_Station
 
            
         }
+        public static void offled()
+        {
+            int s = Server_Class.list1.Count;
+            if (s >0)
+            {
+                for (int i = 0; i < s; i++)
+                {
+                    Server_Class.onoffled(Server_Class.list1[0].ToString(),1);
+
+                }
+
+            }
+
+
+        }
         public static void LEDOnOff(string ip,int port,string message)
         {
-            bool bl =true  ;
+            bool bl =true ;
             if (bl)
             {
                 TcpClient tcpClient = new TcpClient();

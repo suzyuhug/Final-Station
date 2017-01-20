@@ -227,6 +227,7 @@
             this.txtloc.Name = "txtloc";
             this.txtloc.Size = new System.Drawing.Size(180, 29);
             this.txtloc.TabIndex = 11;
+            this.txtloc.TextChanged += new System.EventHandler(this.txtloc_TextChanged);
             this.txtloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtloc_KeyDown);
             // 
             // FrmPtaway
