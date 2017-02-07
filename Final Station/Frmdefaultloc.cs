@@ -29,7 +29,15 @@ namespace Final_Station
                 if (SqlHelper.ExecuteNonQuery(strsql) )
                 {
                     Server_Class.onoffled(txtol.Text,0); 
-                    txtpn.Clear();txtol.Clear();txtpn.Focus();
+                  
+                    if (checkBox1.Checked ==false)
+                    {
+                        txtpn.Clear(); txtol.Clear(); txtpn.Focus();
+                    }
+                    else
+                    {
+                        txtol.Clear(); txtol.Focus();
+                    }
 
                 }
             }

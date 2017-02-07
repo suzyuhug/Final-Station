@@ -62,12 +62,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frmaccessory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frmaccessory.Designer.cs">
-      <DependentUpon>Frmaccessory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frmdefaultloc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,23 +86,11 @@
     <Compile Include="Frmmessage.Designer.cs">
       <DependentUpon>Frmmessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frmolview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frmolview.Designer.cs">
-      <DependentUpon>Frmolview.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frmonoffled.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frmonoffled.Designer.cs">
       <DependentUpon>Frmonoffled.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPtaway.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPtaway.Designer.cs">
-      <DependentUpon>FrmPtaway.cs</DependentUpon>
     </Compile>
     <Compile Include="Frmsetting.cs">
       <SubType>Form</SubType>
@@ -140,21 +122,12 @@
     <Compile Include="Frmwip.Designer.cs">
       <DependentUpon>Frmwip.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InputBox.Designer.cs">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerClass.cs" />
     <Compile Include="SqlHelper.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frmaccessory.resx">
-      <DependentUpon>Frmaccessory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frmdefaultloc.resx">
       <DependentUpon>Frmdefaultloc.cs</DependentUpon>
@@ -168,14 +141,8 @@
     <EmbeddedResource Include="Frmmessage.resx">
       <DependentUpon>Frmmessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frmolview.resx">
-      <DependentUpon>Frmolview.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frmonoffled.resx">
       <DependentUpon>Frmonoffled.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPtaway.resx">
-      <DependentUpon>FrmPtaway.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frmsetting.resx">
       <DependentUpon>Frmsetting.cs</DependentUpon>
@@ -192,9 +159,6 @@
     <EmbeddedResource Include="Frmwip.resx">
       <DependentUpon>Frmwip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputBox.resx">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -203,6 +167,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -218,6 +183,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\i1.png" />
     <Content Include="SharePointPortalSite.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

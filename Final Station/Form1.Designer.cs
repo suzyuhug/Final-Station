@@ -105,7 +105,7 @@
             series1.Points.Add(dataPoint2);
             series1.YValueMembers = "out";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(222, 134);
+            this.chart1.Size = new System.Drawing.Size(710, 550);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

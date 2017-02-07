@@ -34,45 +34,48 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShip));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.GridViewPO = new System.Windows.Forms.DataGridView();
+            this.zt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POslot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txtpo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtpn = new System.Windows.Forms.TextBox();
-            this.txtsn = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtrloc = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtrloc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.zt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POslot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtsn = new System.Windows.Forms.TextBox();
+            this.txtpn = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabControl2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -100,23 +103,6 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "通过PO取料";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel1);
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.txtsn);
-            this.tabPage3.Controls.Add(this.txtpn);
-            this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(930, 640);
-            this.tabPage3.TabIndex = 1;
-            this.tabPage3.Text = "通过料号取料";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -213,6 +199,30 @@
             this.GridViewPO.Size = new System.Drawing.Size(559, 517);
             this.GridViewPO.TabIndex = 16;
             // 
+            // zt
+            // 
+            this.zt.FillWeight = 40F;
+            this.zt.HeaderText = "";
+            this.zt.Name = "zt";
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            // 
+            // PartNumber
+            // 
+            this.PartNumber.DataPropertyName = "PartNumber";
+            this.PartNumber.HeaderText = "Part Number";
+            this.PartNumber.Name = "PartNumber";
+            // 
+            // POslot
+            // 
+            this.POslot.DataPropertyName = "POSlot";
+            this.POslot.HeaderText = "POslot";
+            this.POslot.Name = "POslot";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(256, 23);
@@ -243,48 +253,68 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "PO#:";
             // 
-            // label3
+            // tabPage3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(79, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "PN:";
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.txtsn);
+            this.tabPage3.Controls.Add(this.txtpn);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(930, 640);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "通过料号取料";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // panel1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(79, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "SN:";
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(554, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(26, 28);
+            this.panel1.TabIndex = 7;
             // 
-            // txtpn
+            // groupBox1
             // 
-            this.txtpn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtpn.Location = new System.Drawing.Point(110, 52);
-            this.txtpn.Name = "txtpn";
-            this.txtpn.Size = new System.Drawing.Size(184, 20);
-            this.txtpn.TabIndex = 2;
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtrloc);
+            this.groupBox1.Location = new System.Drawing.Point(85, 70);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(259, 132);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "库位确认";
             // 
-            // txtsn
+            // label6
             // 
-            this.txtsn.Location = new System.Drawing.Point(110, 94);
-            this.txtsn.Name = "txtsn";
-            this.txtsn.Size = new System.Drawing.Size(184, 20);
-            this.txtsn.TabIndex = 3;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "label6";
             // 
-            // button3
+            // label5
             // 
-            this.button3.Location = new System.Drawing.Point(345, 65);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 40);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "查找";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(62, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "请扫描库位上的条码";
+            // 
+            // txtrloc
+            // 
+            this.txtrloc.Location = new System.Drawing.Point(53, 46);
+            this.txtrloc.Name = "txtrloc";
+            this.txtrloc.Size = new System.Drawing.Size(137, 20);
+            this.txtrloc.TabIndex = 0;
+            this.txtrloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrloc_KeyDown);
             // 
             // dataGridView1
             // 
@@ -343,81 +373,76 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // groupBox1
+            // button3
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtrloc);
-            this.groupBox1.Location = new System.Drawing.Point(85, 70);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 132);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "库位确认";
+            this.button3.Location = new System.Drawing.Point(345, 65);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(77, 40);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "查找";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // txtrloc
+            // txtsn
             // 
-            this.txtrloc.Location = new System.Drawing.Point(53, 46);
-            this.txtrloc.Name = "txtrloc";
-            this.txtrloc.Size = new System.Drawing.Size(137, 20);
-            this.txtrloc.TabIndex = 0;
-            this.txtrloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrloc_KeyDown);
+            this.txtsn.Location = new System.Drawing.Point(110, 94);
+            this.txtsn.Name = "txtsn";
+            this.txtsn.Size = new System.Drawing.Size(184, 20);
+            this.txtsn.TabIndex = 3;
             // 
-            // label5
+            // txtpn
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 77);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "请扫描库位上的条码";
+            this.txtpn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtpn.Location = new System.Drawing.Point(110, 52);
+            this.txtpn.Name = "txtpn";
+            this.txtpn.Size = new System.Drawing.Size(184, 20);
+            this.txtpn.TabIndex = 2;
             // 
-            // panel1
+            // label4
             // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(554, 39);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(26, 28);
-            this.panel1.TabIndex = 7;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(79, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "SN:";
             // 
-            // label6
+            // label3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "label6";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(79, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "PN:";
             // 
-            // zt
+            // toolStrip1
             // 
-            this.zt.FillWeight = 40F;
-            this.zt.HeaderText = "";
-            this.zt.Name = "zt";
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 693);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1010, 25);
+            this.toolStrip1.TabIndex = 14;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // Location
+            // toolStripButton1
             // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            // 
-            // PartNumber
-            // 
-            this.PartNumber.DataPropertyName = "PartNumber";
-            this.PartNumber.HeaderText = "Part Number";
-            this.PartNumber.Name = "PartNumber";
-            // 
-            // POslot
-            // 
-            this.POslot.DataPropertyName = "POSlot";
-            this.POslot.HeaderText = "POslot";
-            this.POslot.Name = "POslot";
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Final_Station.Properties.Resources.i1;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // FrmShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 718);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmShip";
@@ -428,17 +453,20 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -476,5 +504,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Location;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn POslot;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

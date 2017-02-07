@@ -30,6 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtrloc = new System.Windows.Forms.TextBox();
+            this.txtsn = new System.Windows.Forms.TextBox();
+            this.labsn = new System.Windows.Forms.Label();
             this.labloc = new System.Windows.Forms.Label();
             this.txtpn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,25 +47,23 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtloc = new System.Windows.Forms.TextBox();
-            this.txtsn = new System.Windows.Forms.TextBox();
-            this.labsn = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtrloc = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(29, 40);
+            this.tabControl1.Location = new System.Drawing.Point(29, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(839, 543);
@@ -81,6 +84,52 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "通过料号上架";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(737, 105);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(31, 26);
+            this.panel1.TabIndex = 7;
+            this.panel1.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtrloc);
+            this.groupBox1.Location = new System.Drawing.Point(132, 79);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(220, 104);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "确认库位";
+            // 
+            // txtrloc
+            // 
+            this.txtrloc.Location = new System.Drawing.Point(52, 37);
+            this.txtrloc.Name = "txtrloc";
+            this.txtrloc.Size = new System.Drawing.Size(123, 20);
+            this.txtrloc.TabIndex = 0;
+            this.txtrloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrloc_KeyDown);
+            // 
+            // txtsn
+            // 
+            this.txtsn.Location = new System.Drawing.Point(142, 82);
+            this.txtsn.Name = "txtsn";
+            this.txtsn.Size = new System.Drawing.Size(200, 20);
+            this.txtsn.TabIndex = 5;
+            this.txtsn.Visible = false;
+            this.txtsn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtsn_KeyDown);
+            // 
+            // labsn
+            // 
+            this.labsn.AutoSize = true;
+            this.labsn.Location = new System.Drawing.Point(51, 85);
+            this.labsn.Name = "labsn";
+            this.labsn.Size = new System.Drawing.Size(85, 13);
+            this.labsn.TabIndex = 4;
+            this.labsn.Text = "Serial Number：";
+            this.labsn.Visible = false;
             // 
             // labloc
             // 
@@ -199,67 +248,41 @@
             this.txtloc.TabIndex = 0;
             this.txtloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtloc_KeyDown);
             // 
-            // txtsn
+            // toolStrip1
             // 
-            this.txtsn.Location = new System.Drawing.Point(142, 82);
-            this.txtsn.Name = "txtsn";
-            this.txtsn.Size = new System.Drawing.Size(200, 20);
-            this.txtsn.TabIndex = 5;
-            this.txtsn.Visible = false;
-            this.txtsn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtsn_KeyDown);
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 583);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(897, 25);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // labsn
+            // toolStripButton1
             // 
-            this.labsn.AutoSize = true;
-            this.labsn.Location = new System.Drawing.Point(51, 85);
-            this.labsn.Name = "labsn";
-            this.labsn.Size = new System.Drawing.Size(85, 13);
-            this.labsn.TabIndex = 4;
-            this.labsn.Text = "Serial Number：";
-            this.labsn.Visible = false;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Final_Station.Properties.Resources.i1;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // label5
+            // toolStripLabel1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(681, 586);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(204, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "PS:键盘输入时，输入完成请按回车键";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtrloc);
-            this.groupBox1.Location = new System.Drawing.Point(132, 79);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 104);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "确认库位";
-            // 
-            // txtrloc
-            // 
-            this.txtrloc.Location = new System.Drawing.Point(52, 37);
-            this.txtrloc.Name = "txtrloc";
-            this.txtrloc.Size = new System.Drawing.Size(123, 20);
-            this.txtrloc.TabIndex = 0;
-            this.txtrloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtrloc_KeyDown);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(737, 105);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(31, 26);
-            this.panel1.TabIndex = 7;
-            this.panel1.Visible = false;
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(218, 22);
+            this.toolStripLabel1.Text = "PS:键盘输入时，输入完成请按回车键     ";
             // 
             // Frmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 608);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.tabControl1);
             this.Name = "Frmin";
@@ -269,13 +292,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,9 +324,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtsn;
         private System.Windows.Forms.Label labsn;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtrloc;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }

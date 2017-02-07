@@ -26,7 +26,7 @@ namespace Final_Station
                 {
                     a = 0;
                 }
-                else if (radioButton2.Checked=true )
+                else if (radioButton2.Checked==true )
                 {
                     a = 1;
                 }

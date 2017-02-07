@@ -58,6 +58,79 @@ namespace Final_Station
 
            
         }
+       public static  bool bl=true;
+
+        public static void Error(string id)
+        {
+            Thread t = new Thread(new ParameterizedThreadStart(Error1));
+            t.Start(id);
+        }
+        public static void Error1(object data)
+        {
+            string id = data as string;
+            if (Server_Class.bl)
+            {
+
+
+                Server_Class.bl = false;
+                string tempip = "192.168.0.55";
+                int tempport = 1031;
+                string redled = "led23", yellowled = "led17", greenled = "led19", sound = "led21";
+
+                switch (id)
+                {
+                    case "0"://red led
+
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, redled + "_0");
+                        Thread.Sleep(1000);
+                        LEDOnOff(tempip, tempport, redled + "_1");                        
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");
+                        break;
+                    case "1"://yellow led
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, yellowled + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, yellowled + "_1");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");                                             
+                        break;
+                    case "2"://green led
+                        LEDOnOff(tempip, tempport, greenled + "_0");                       
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");                        
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, greenled + "_1");
+                        break;
+                    case "3"://sound
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);                                         
+                        LEDOnOff(tempip, tempport, sound + "_1");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_0");
+                        Thread.Sleep(200);
+                        LEDOnOff(tempip, tempport, sound + "_1");
+                        break;
+
+                    default:
+                        break;
+                }
+                Server_Class.bl = true;
+            }
+        }
         public static void offled()
         {
             int s = Server_Class.list1.Count;
@@ -75,7 +148,7 @@ namespace Final_Station
         }
         public static void LEDOnOff(string ip,int port,string message)
         {
-            bool bl =true ;
+            bool bl =false ;
             if (bl)
             {
                 TcpClient tcpClient = new TcpClient();

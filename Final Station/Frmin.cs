@@ -17,11 +17,9 @@ namespace Final_Station
         public Frmin()
         {
             InitializeComponent();
-            //========================================================
-
-            //写到关闭备料时更新Partdata  de mark
-            //========================================================
+           
         }
+        string str="没有错误消息";
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -59,6 +57,7 @@ namespace Final_Station
                 }
                 else
                 {
+                    Server_Class.Error("3");
                     groupview();
 
                 }
@@ -112,7 +111,9 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show("库位不存在或库位上有料，请扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Server_Class.Error("0");
+                    str = "库位不存在或库位上有料，请扫描正确的库位";
+                  
                     txtloc.Clear();txtloc.Focus();
                 }
 
@@ -141,7 +142,9 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show("库位上有料，请使用新的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Server_Class.Error("0");
+                    str = "库位上有料，请使用新的库位";
+                    
                     txtpoloc.Clear();txtpoloc.Focus();
                 }
             }
@@ -151,10 +154,8 @@ namespace Final_Station
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (txtpn.Text!="")
+                if (txtpn.Text.Substring(0, 4) == "TDN-" || txtpn.Text.Substring(0, 5) == "PTDN-")
                 {
-
-
                     if (txtpn.Text.Substring(0, 1) == "P")
                     {
                         txtpn.Text = txtpn.Text.Remove(0, 1);
@@ -163,6 +164,7 @@ namespace Final_Station
                     string strsql = $"exec usp_SNDesired '{txtpn.Text}'";
                     if (SqlHelper.ExcuteStr(strsql) == "1")
                     {
+                        Server_Class.Error("1");
                         labsn.Visible = true; txtsn.Visible = true;
                         txtsn.Focus();
                     }
@@ -173,7 +175,9 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show("请输入料号，不可以为空", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    str = "请输入正确的料号";
+                    Server_Class.Error("0");
+                    txtpn.Clear();txtpn.Focus();                   
                 }
             }
         }
@@ -223,6 +227,7 @@ namespace Final_Station
               
                 if (txtrloc.Text==labloc.Text)
                 {
+                    Server_Class.Error("2");
                     //=====================关闭LED===================
                     Server_Class.onoffled(txtrloc.Text, 1);
                     panel1.Visible = false;
@@ -231,7 +236,9 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show("扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Server_Class.Error("0");
+                    str = "扫描正确的库位";
+                 
                     txtrloc.Clear();txtrloc.Focus();
 
                 }
@@ -244,6 +251,11 @@ namespace Final_Station
         private void Frmin_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(str, "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

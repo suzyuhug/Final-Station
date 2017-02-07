@@ -86,6 +86,14 @@ namespace Final_Station
                 MessageBox.Show(e.Message);
             }
         }
+        private void upmark()
+        {
+            string strsql = "exec usp_updatemark";
+            SqlHelper.ExecuteNonQuery(strsql); 
+
+
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -167,6 +175,7 @@ namespace Final_Station
             tabControl1.Visible = true;
             textBox2.Focus();
             Application.DoEvents();
+           
             Thread th = new Thread(thled);
             th.Start();
 
@@ -180,29 +189,24 @@ namespace Final_Station
         {
 
             num1 = 0;
+          
             for (int i = 0; i < GridViewPO.RowCount; i++)
             {
-                if (GridViewPO.Rows[i].Cells["Location"].Value != null)
+                if (GridViewPO.Rows[i].Cells["Location"].Value.ToString() != "")
                 {
-                    num1++;
-                    //==========打开LED
+                    num1++;                                     
                     Server_Class.onoffled(GridViewPO.Rows[i].Cells["Location"].Value.ToString(), 0);
-
-
                 }
             }
+           
 
 
         });
+            
+            Server_Class.Error("1");
         }
 
 
-
-       
-       
-
-
-        //=-==================================================================
         int num=0;
         int temp = 0;
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
@@ -222,19 +226,24 @@ namespace Final_Station
                             textBox2.Clear();
                             num++;
                             temp = 1;
+                            break;
                         }
                     }
                 }
 
                 if (temp != 1)
                 {
-                    MessageBox.Show("请扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Server_Class.Error("0");
+                    str = "请扫描正确的库位";
+                  
                     textBox2.Clear(); textBox2.Focus();
                 }
 
 
                 if (num ==num1)
                 {
+                    Server_Class.Error("2");
+                   
                     MessageBox.Show("备料完成", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     GridViewPO.DataSource = null;
                     tabControl1.Visible = false;
@@ -348,7 +357,9 @@ namespace Final_Station
                 }
                 else
                 {
-                    MessageBox.Show("请扫描正确的库位", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Server_Class.Error("0");
+                    str = "请扫描正确的库位";
+                 
                     txtrloc.Clear();txtrloc.Focus();
                 }
 
@@ -357,7 +368,13 @@ namespace Final_Station
 
         private void FrmShip_FormClosed(object sender, FormClosedEventArgs e)
         {
+            upmark();
             Server_Class.offled();
+        }
+        string str = "没有错误消息";
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(str, "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

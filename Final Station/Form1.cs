@@ -71,8 +71,7 @@ namespace Final_Station
        
         private void chart1_DoubleClick(object sender, EventArgs e)
         {
-            Frmolview frm = new Final_Station.Frmolview();
-            frm.ShowDialog();
+           
         }
 
         private void chart1_Click(object sender, EventArgs e)
