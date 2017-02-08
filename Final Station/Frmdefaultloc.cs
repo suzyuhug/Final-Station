@@ -28,7 +28,7 @@ namespace Final_Station
                 string strsql = $"exec usp_insertDefloc '{txtpn.Text}','{txtol.Text}'";
                 if (SqlHelper.ExecuteNonQuery(strsql) )
                 {
-                    Server_Class.onoffled(txtol.Text,0); 
+                    Server_Class.Error("2");
                   
                     if (checkBox1.Checked ==false)
                     {
@@ -48,7 +48,6 @@ namespace Final_Station
             if (e.KeyCode == Keys.Enter)
             {
                 txtol.Focus();
-
             }
         }
 

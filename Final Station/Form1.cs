@@ -19,27 +19,17 @@ namespace Final_Station
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-       
-       
-
+        }      
         private void button2_Click(object sender, EventArgs e)
         {
             FrmShip ship =new FrmShip();
             ship.Show();
-
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
-        {
-           
-           
-           
+        {                                 
             try
             {
-
-
                 SqlConnection cn = new SqlConnection(Server_Class.SqlData);
                 cn.Open();
                 SqlCommand cmd = new SqlCommand("usp_mainview", cn);
@@ -48,36 +38,21 @@ namespace Final_Station
                 {
                 chart1.Series[0].Points[0].SetValueY(dr["existol"].ToString());
                 chart1.Series[0].Points[1].SetValueY(dr["nullol"].ToString());
-                }     
-                   
+                }                        
                 cn.Close();
             }
             catch (Exception err)
             {
-
                 MessageBox.Show(err.Message);
             }
-
-
         }
 
         private void ButSetting_Click(object sender, EventArgs e)
         {
             Frmsetting setting = new Final_Station.Frmsetting();
             setting.Show();
-
-        }
-
+        }       
        
-        private void chart1_DoubleClick(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ButPtaway_Click(object sender, EventArgs e)
         {
@@ -89,9 +64,6 @@ namespace Final_Station
         {
             DateTime dt = DateTime.Now;
             toolStripStatusLabel2.Text = dt.ToString();
-
-
-
         }
       
        

@@ -39,8 +39,6 @@ namespace Final_Station
                 {
                     LabLEDview.Text = "l";
                 }
-
-                //===========================================================通过DS Table打开LED
                 gip = ds.Tables[0].Rows[i-1]["LED_IP"].ToString();
                 gport = int.Parse(ds.Tables[0].Rows[i-1]["LED_Port"].ToString());
                 gmsg = $"{ds.Tables[0].Rows[i-1]["LED_Message"].ToString()}{onoff}";
@@ -135,14 +133,12 @@ namespace Final_Station
                 timer1.Enabled = true;
             }
             button4.Text = button4.Text == "暂停" ? "启动" : "暂停";
-
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Frmdown frm = new Frmdown();
             frm.ShowDialog();
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -167,14 +163,12 @@ namespace Final_Station
         {
             Frmtest frm = new Frmtest();
             frm.ShowDialog();
-
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             Frmdefaultloc frm = new Frmdefaultloc();
             frm.ShowDialog();
-
-        }
+        }       
     }
 }

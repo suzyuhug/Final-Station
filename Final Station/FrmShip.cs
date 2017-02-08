@@ -19,80 +19,77 @@ namespace Final_Station
         {
             InitializeComponent();
         }
-        DataTable NOpo;
-        DataTable Existpo;
-        private void nopo()
-        {
-            try
-            {
-                SqlConnection cn = new SqlConnection(Server_Class.SqlData);
-                cn.Open();
-                SqlCommand cmd = new SqlCommand("usp_POsearch ''", cn);
-                SqlDataAdapter dp = new SqlDataAdapter(cmd);
-                NOpo = new DataTable();
-                dp.Fill(NOpo);
-                // dataGridView2.DataSource = NOpo;
-                cn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
+       // DataTable NOpo;
+        //DataTable Existpo;
+        //private void nopo()
+        //{
+        //    try
+        //    {
+        //        SqlConnection cn = new SqlConnection(Server_Class.SqlData);
+        //        cn.Open();
+        //        SqlCommand cmd = new SqlCommand("usp_POsearch ''", cn);
+        //        SqlDataAdapter dp = new SqlDataAdapter(cmd);
+        //        NOpo = new DataTable();
+        //        dp.Fill(NOpo);
+        //        // dataGridView2.DataSource = NOpo;
+        //        cn.Close();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
 
-            }
+        //    }
 
-        }
-        private void tovpo(string po)
-        {
+        //}
+        //private void tovpo(string po)
+        //{
 
-            try
-            {
-                string SqlData = "server=suznt019;database=TOV_BaaN;uid=TOV_TER;pwd=Tov@0916";
-                SqlConnection cn = new SqlConnection(SqlData);
-                cn.Open();
-                string sql = "EXEC usp_PODetail_Extend '" + po + "',null";
-                SqlCommand cmd = new SqlCommand(sql, cn);
-                SqlDataAdapter dp = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                dp.Fill(ds);
-                cn.Close();
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    string tmeppn; string Category;
-                    for (int i = 0; i < ds.Tables[0].Rows.Count - 1; i++)
-                    {
-                        Category = ds.Tables[0].Rows[i]["Category"].ToString();
-                        if (Category == "MC")
-                        {
-                            tmeppn = ds.Tables[0].Rows[i]["Component"].ToString();
-                            DataRow[] ExistpoArr = Existpo.Select("PartNumber='" + tmeppn + "'");
-                            if (ExistpoArr.Length <= 0)
-                            {
-                                DataRow[] NopoArr = NOpo.Select("PartNumber='" + tmeppn + "'");
-                                if (NopoArr.Length > 0)
-                                {
-                                    DataRow row = Existpo.NewRow();
-                                    row["PartNumber"] = tmeppn;
-                                    row["Location"] = NopoArr[0]["Location"].ToString();
-                                    Existpo.Rows.Add(row);
+        //    try
+        //    {
+        //        string SqlData = "server=suznt019;database=TOV_BaaN;uid=TOV_TER;pwd=Tov@0916";
+        //        SqlConnection cn = new SqlConnection(SqlData);
+        //        cn.Open();
+        //        string sql = "EXEC usp_PODetail_Extend '" + po + "',null";
+        //        SqlCommand cmd = new SqlCommand(sql, cn);
+        //        SqlDataAdapter dp = new SqlDataAdapter(cmd);
+        //        DataSet ds = new DataSet();
+        //        dp.Fill(ds);
+        //        cn.Close();
+        //        if (ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            string tmeppn; string Category;
+        //            for (int i = 0; i < ds.Tables[0].Rows.Count - 1; i++)
+        //            {
+        //                Category = ds.Tables[0].Rows[i]["Category"].ToString();
+        //                if (Category == "MC")
+        //                {
+        //                    tmeppn = ds.Tables[0].Rows[i]["Component"].ToString();
+        //                    DataRow[] ExistpoArr = Existpo.Select("PartNumber='" + tmeppn + "'");
+        //                    if (ExistpoArr.Length <= 0)
+        //                    {
+        //                        DataRow[] NopoArr = NOpo.Select("PartNumber='" + tmeppn + "'");
+        //                        if (NopoArr.Length > 0)
+        //                        {
+        //                            DataRow row = Existpo.NewRow();
+        //                            row["PartNumber"] = tmeppn;
+        //                            row["Location"] = NopoArr[0]["Location"].ToString();
+        //                            Existpo.Rows.Add(row);
 
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
         private void upmark()
         {
             string strsql = "exec usp_updatemark";
             SqlHelper.ExecuteNonQuery(strsql); 
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,10 +153,8 @@ namespace Final_Station
                 else
                 {
                     MessageBox.Show("请输入正确PO，PO不存在", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                frm.Dispose();
-                frm.Close();
-               
+                }               
+                frm.Close();               
             }
             else
             {
@@ -174,8 +169,7 @@ namespace Final_Station
             button2.Visible = false;
             tabControl1.Visible = true;
             textBox2.Focus();
-            Application.DoEvents();
-           
+            Application.DoEvents();           
             Thread th = new Thread(thled);
             th.Start();
 
@@ -184,10 +178,10 @@ namespace Final_Station
 
         private void thled()
         {
-
+            Server_Class.Error("1");
+            Thread.Sleep(1000);
             this.Invoke((EventHandler)delegate
-        {
-
+        {                     
             num1 = 0;
           
             for (int i = 0; i < GridViewPO.RowCount; i++)
@@ -197,13 +191,8 @@ namespace Final_Station
                     num1++;                                     
                     Server_Class.onoffled(GridViewPO.Rows[i].Cells["Location"].Value.ToString(), 0);
                 }
-            }
-           
-
-
-        });
-            
-            Server_Class.Error("1");
+            }           
+        });          
         }
 
 
@@ -242,35 +231,21 @@ namespace Final_Station
 
                 if (num ==num1)
                 {
-                    Server_Class.Error("2");
-                   
+                    Thread.Sleep(1000);
+                    Server_Class.Error("2");                   
                     MessageBox.Show("备料完成", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     GridViewPO.DataSource = null;
                     tabControl1.Visible = false;
                     txtpo.Clear(); txtpo.Focus();
-
-
                 }
-
             }
         }
 
 
         private void TakePart(string ol)
         {
-            try
-            {
-                SqlConnection cn = new SqlConnection(Server_Class.SqlData);          
-                SqlCommand cmd = new SqlCommand("usp_OutLoc '" + ol+ "'", cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message );
-            }
-
+            string strsql = "usp_OutLoc '" + ol + "'";
+            SqlHelper.ExecuteNonQuery(strsql);
         }
 
         private void txtpo_KeyDown(object sender, KeyEventArgs e)
@@ -291,21 +266,28 @@ namespace Final_Station
         {
             if (txtpn.Text!=""||txtsn.Text !="")
             {
-                if (txtpn.Text.Substring(0, 1) == "P")
+                if (txtpn.Text!="")
                 {
-                    txtpn.Text = txtpn.Text.Remove(0, 1);
-                }
+                    if (txtpn.Text.Substring(0, 1) == "P")
+                    {
+                        txtpn.Text = txtpn.Text.Remove(0, 1);
+                    }
+                }               
                 string strsql = $"exec usp_searchItem '{txtpn.Text.Trim()}','{txtsn.Text.Trim()}'";
                 DataSet ds = new DataSet();
                 ds = SqlHelper.ExcuteDataSet(strsql);
                 if (ds!=null)
                 {
-                    dataGridView1.DataSource = ds.Tables[0];
-
+                    if (ds.Tables[0].Rows.Count >0)
+                    {
+                        dataGridView1.DataSource = ds.Tables[0];
+                    }
+                    else
+                    {
+                        MessageBox.Show("没有查到任何记录", "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtpn.Clear();txtsn.Clear();txtpn.Focus();
+                    }                  
                 }
-
-
-
             }
         }
 
@@ -320,9 +302,6 @@ namespace Final_Station
                     dataGridView1.CurrentRow.Cells["Column5"].Value = "拿走了";
                     enterloc();
                 }
-
-               
-
             }
         }
 
@@ -335,8 +314,6 @@ namespace Final_Station
             groupBox1.Left = (panel1.Width / 2) - (groupBox1.Width / 2);
             panel1.Visible = true;
             txtrloc.Focus();
-
-
         }
 
         private void txtrloc_KeyDown(object sender, KeyEventArgs e)
@@ -350,19 +327,15 @@ namespace Final_Station
                     {
                         Server_Class.onoffled(txtrloc.Text ,1);
                         panel1.Visible = false;
-                        //dataGridView1.Rows.Clear();
-                        txtpn.Clear();txtsn.Clear();txtpn.Focus();
-                        
+                        txtpn.Clear();txtsn.Clear();txtpn.Focus();                        
                     }
                 }
                 else
                 {
                     Server_Class.Error("0");
-                    str = "请扫描正确的库位";
-                 
+                    str = "请扫描正确的库位";                 
                     txtrloc.Clear();txtrloc.Focus();
                 }
-
             }
         }
 

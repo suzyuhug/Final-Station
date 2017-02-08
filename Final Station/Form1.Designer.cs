@@ -112,11 +112,7 @@
             title1.Name = "Title1";
             title1.Text = "库位状态";
             this.chart1.Titles.Add(title1);
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
-            this.chart1.DoubleClick += new System.EventHandler(this.chart1_DoubleClick);
-            // 
-            // statusStrip1
-            // 
+            
             this.statusStrip1.AutoSize = false;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,

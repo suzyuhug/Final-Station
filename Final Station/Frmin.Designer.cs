@@ -136,9 +136,8 @@
             this.labloc.AutoSize = true;
             this.labloc.Location = new System.Drawing.Point(746, 42);
             this.labloc.Name = "labloc";
-            this.labloc.Size = new System.Drawing.Size(50, 13);
+            this.labloc.Size = new System.Drawing.Size(0, 13);
             this.labloc.TabIndex = 3;
-            this.labloc.Text = "LOCview";
             // 
             // txtpn
             // 
@@ -186,9 +185,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(64, 91);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Loc:";
+            this.label4.Text = "LOC:";
             // 
             // txtpo
             // 
@@ -288,6 +287,7 @@
             this.Name = "Frmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IN Main";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frmin_FormClosed);
             this.Load += new System.EventHandler(this.Frmin_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

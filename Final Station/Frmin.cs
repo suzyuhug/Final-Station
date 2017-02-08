@@ -43,6 +43,7 @@ namespace Final_Station
                 {
                     tmepid = ds.Tables[0].Rows[0]["out"].ToString();
                     Olid = ds.Tables[0].Rows[0]["ol"].ToString();
+                
                 }
                 if (tmepid == "1")
                 {
@@ -50,10 +51,6 @@ namespace Final_Station
                     labloc.Text = Olid;
                     Server_Class.onoffled(Olid, 0);
                     affirmloc();
-
-
-                    //====================================olid open led==================================================
-
                 }
                 else
                 {
@@ -61,10 +58,6 @@ namespace Final_Station
                     groupview();
 
                 }
-
-
-
-
             }
         }
         private void groupview()
@@ -98,7 +91,6 @@ namespace Final_Station
                     sn = null;
                 }
 
-
                 string strsql = $"exec usp_OLNullInsertPN '{txtloc.Text.Trim()}','{txtpn.Text.Trim()}','{sn}'";
 
                 if (SqlHelper.ExcuteStr(strsql) == "1")
@@ -106,27 +98,21 @@ namespace Final_Station
                     groupBox.Visible = false;
                     labsn.Visible = false;txtsn.Visible = false;
                     txtpn.Clear();txtpn.Focus();
-                    //======================LED灯闪烁=============================
                     leds(txtloc.Text);
                 }
                 else
                 {
                     Server_Class.Error("0");
-                    str = "库位不存在或库位上有料，请扫描正确的库位";
-                  
+                    str = "库位不存在或库位上有料，请扫描正确的库位";                  
                     txtloc.Clear();txtloc.Focus();
                 }
-
             }
-
         }
         private void leds(string ol)
         {
             Server_Class.onoffled(ol, 0);
             Thread.Sleep(1000);
             Server_Class.onoffled(ol, 1);
-
-
         }
 
         private void butpo_Click(object sender, EventArgs e)
@@ -138,13 +124,11 @@ namespace Final_Station
                 {
                     leds(txtpoloc.Text);
                     txtpo.Clear();txtpoloc.Clear();txtpo.Focus();
-
                 }
                 else
                 {
                     Server_Class.Error("0");
-                    str = "库位上有料，请使用新的库位";
-                    
+                    str = "库位上有料，请使用新的库位";                    
                     txtpoloc.Clear();txtpoloc.Focus();
                 }
             }
@@ -227,35 +211,35 @@ namespace Final_Station
               
                 if (txtrloc.Text==labloc.Text)
                 {
-                    Server_Class.Error("2");
-                    //=====================关闭LED===================
                     Server_Class.onoffled(txtrloc.Text, 1);
+                    Thread.Sleep(200);
+                    Server_Class.Error("2");                  
                     panel1.Visible = false;
                     txtpn.Focus();
-
                 }
                 else
                 {
                     Server_Class.Error("0");
-                    str = "扫描正确的库位";
-                 
+                    str = "扫描正确的库位";                 
                     txtrloc.Clear();txtrloc.Focus();
 
                 }
-
-
             }
+        }
+       
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(str, "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
+        private void Frmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Server_Class.offled();
         }
 
         private void Frmin_Load(object sender, EventArgs e)
         {
-           
-        }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(str, "系统消息", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

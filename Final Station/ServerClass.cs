@@ -133,6 +133,9 @@ namespace Final_Station
         }
         public static void offled()
         {
+            string strsql = "exec usp_updatePortStatus";
+            SqlHelper.ExecuteNonQuery(strsql);
+
             int s = Server_Class.list1.Count;
             if (s >0)
             {
@@ -148,7 +151,7 @@ namespace Final_Station
         }
         public static void LEDOnOff(string ip,int port,string message)
         {
-            bool bl =false ;
+            bool bl =true ;
             if (bl)
             {
                 TcpClient tcpClient = new TcpClient();

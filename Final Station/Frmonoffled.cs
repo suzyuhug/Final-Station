@@ -34,12 +34,7 @@ namespace Final_Station
                 txtloc.Clear();txtloc.Focus();
             }
         }
-
-        private void txtloc_MouseDown(object sender, MouseEventArgs e)
-        {
-           
-        }
-
+      
         private void txtloc_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

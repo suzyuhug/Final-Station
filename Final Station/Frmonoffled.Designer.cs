@@ -51,7 +51,6 @@
             this.txtloc.Size = new System.Drawing.Size(157, 20);
             this.txtloc.TabIndex = 1;
             this.txtloc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtloc_KeyDown);
-            this.txtloc.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtloc_MouseDown);
             // 
             // button1
             // 
