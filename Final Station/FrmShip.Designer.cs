@@ -235,6 +235,7 @@
             // 
             // txtpo
             // 
+            this.txtpo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpo.Location = new System.Drawing.Point(100, 26);
             this.txtpo.MaxLength = 6;
@@ -310,6 +311,7 @@
             // 
             // txtrloc
             // 
+            this.txtrloc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtrloc.Location = new System.Drawing.Point(53, 46);
             this.txtrloc.Name = "txtrloc";
             this.txtrloc.Size = new System.Drawing.Size(137, 20);
@@ -385,6 +387,7 @@
             // 
             // txtsn
             // 
+            this.txtsn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtsn.Location = new System.Drawing.Point(110, 94);
             this.txtsn.Name = "txtsn";
             this.txtsn.Size = new System.Drawing.Size(184, 20);
@@ -447,7 +450,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmShip";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Out Main";
+            this.Text = "物料出货";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmShip_FormClosed);
             this.Load += new System.EventHandler(this.FrmShip_Load);
             this.tabControl2.ResumeLayout(false);

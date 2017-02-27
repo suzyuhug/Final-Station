@@ -14,7 +14,7 @@ namespace Final_Station
 {
     public class Server_Class
     {
-        public static string SqlData = "server=10.194.48.150\\MySQL;database=Final Station;uid=sa;pwd=Aa123456";
+        public static string SqlData = "server=suznt004;user id=andy;password=123;database=FindStation;Connect Timeout=5";
         public static string olval;
         public static ArrayList list1 = new ArrayList();
         public static void onoffled(string ol,int onoffid)
@@ -46,6 +46,7 @@ namespace Final_Station
                     onoff =int.Parse(ds.Tables[0].Rows[0]["ONOFF"].ToString());
                     if (onoff == 0)
                     {
+                        Thread.Sleep(200);
                         LEDOnOff(pip, pport, pmsg);
                     }
                     Thread.Sleep(200);

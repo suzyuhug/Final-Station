@@ -20,52 +20,68 @@ namespace Final_Station
         {
             InitializeComponent();
         }      
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FrmShip ship =new FrmShip();
-            ship.Show();
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {                                 
-            try
-            {
-                SqlConnection cn = new SqlConnection(Server_Class.SqlData);
-                cn.Open();
-                SqlCommand cmd = new SqlCommand("usp_mainview", cn);
-                SqlDataReader dr = cmd.ExecuteReader() ;
-                while (dr.Read())
-                {
-                chart1.Series[0].Points[0].SetValueY(dr["existol"].ToString());
-                chart1.Series[0].Points[1].SetValueY(dr["nullol"].ToString());
-                }                        
-                cn.Close();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-        }
-
-        private void ButSetting_Click(object sender, EventArgs e)
-        {
-            Frmsetting setting = new Final_Station.Frmsetting();
-            setting.Show();
-        }       
        
 
-        private void ButPtaway_Click(object sender, EventArgs e)
+        private void FrmMain_Load(object sender, EventArgs e)
         {
-            Frmin frm = new Frmin();
-            frm.Show();
+            label1.Text = "版本：" + Application.ProductVersion; 
         }
 
+ 
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             toolStripStatusLabel2.Text = dt.ToString();
         }
-      
+
        
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Final_Station.Properties.Resources._1; 
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Frmin frm = new Frmin();
+            frm.Show();
+        }      
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Final_Station.Properties.Resources._1_1 ;
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Final_Station.Properties.Resources._2 ;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Final_Station.Properties.Resources._2_2;
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Final_Station.Properties.Resources._3 ;
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Final_Station.Properties.Resources._3_2 ;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FrmShip ship = new FrmShip();
+            ship.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Frmsetting setting = new Final_Station.Frmsetting();
+            setting.Show();
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Final_Station
 {
     class SqlHelper
     {
-        public static readonly string CnStr = "server=10.194.48.150\\Mysql;user id=sa;password=Aa123456;database=Final Station;Connect Timeout=5";
+        public static readonly string CnStr = "server=suznt004;user id=andy;password=123;database=FindStation;Connect Timeout=5";
         public static readonly string POCnStr = "server=suznt019;database=TOV_BaaN;uid=TOV_TER;pwd=Tov@0916;Connect Timeout=5";
 
         public static DataSet ExcuteDataSet(string Sql)

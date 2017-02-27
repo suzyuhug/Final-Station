@@ -106,6 +106,7 @@
             // 
             // txtrloc
             // 
+            this.txtrloc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtrloc.Location = new System.Drawing.Point(52, 37);
             this.txtrloc.Name = "txtrloc";
             this.txtrloc.Size = new System.Drawing.Size(123, 20);
@@ -114,6 +115,7 @@
             // 
             // txtsn
             // 
+            this.txtsn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtsn.Location = new System.Drawing.Point(142, 82);
             this.txtsn.Name = "txtsn";
             this.txtsn.Size = new System.Drawing.Size(200, 20);
@@ -191,6 +193,7 @@
             // 
             // txtpo
             // 
+            this.txtpo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpo.Location = new System.Drawing.Point(111, 45);
             this.txtpo.MaxLength = 6;
             this.txtpo.Name = "txtpo";
@@ -241,6 +244,7 @@
             // 
             // txtloc
             // 
+            this.txtloc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtloc.Location = new System.Drawing.Point(81, 59);
             this.txtloc.Name = "txtloc";
             this.txtloc.Size = new System.Drawing.Size(188, 20);
@@ -286,7 +290,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Frmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IN Main";
+            this.Text = "物料上架";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frmin_FormClosed);
             this.Load += new System.EventHandler(this.Frmin_Load);
             this.tabControl1.ResumeLayout(false);

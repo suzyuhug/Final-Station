@@ -114,7 +114,7 @@ namespace Final_Station
                             string pn = ds.Tables[0].Rows[i]["Component"].ToString();
                             string strsql1 = $"exec usp_OLquery '{pn}'";
                             string ol = SqlHelper.ExcuteStr(strsql1); 
-                            if (ol!=null )
+                            if (ol!="")
                             {
                                 GridViewPO.Rows.Insert(0);
                                 GridViewPO.Rows[0].Cells["Location"].Value = ol;
